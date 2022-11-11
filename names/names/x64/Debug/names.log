@@ -1,0 +1,3 @@
+﻿  solve.c
+C:\Users\pshea\source\repos\names\names\solve.c(96,6): warning C4013: gets: нет определения; предполагается "extern" с возвратом типа "int"
+  names.vcxproj -> C:\Users\pshea\source\repos\names\x64\Debug\names.exe
