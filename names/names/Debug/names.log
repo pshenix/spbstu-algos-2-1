@@ -1,9 +1,0 @@
-﻿  solve.c
-C:\Users\pshea\source\repos\names\names\solve.c(17,9): warning C4013: getline: нет определения; предполагается "extern" с возвратом типа "int"
-C:\Users\pshea\source\repos\names\names\solve.c(21,19): warning C4047: =: "char" отличается по уровням косвенного обращения от "char *"
-C:\Users\pshea\source\repos\names\names\solve.c(62,35): warning C4047: ==: "char *" отличается по уровням косвенного обращения от "int"
-C:\Users\pshea\source\repos\names\names\solve.c(62,67): warning C4047: ==: "char *" отличается по уровням косвенного обращения от "int"
-C:\Users\pshea\source\repos\names\names\solve.c(62,97): warning C4047: ==: "char *" отличается по уровням косвенного обращения от "int"
-C:\Users\pshea\source\repos\names\names\solve.c(63,12): warning C4477: "printf": в строке форматирования "%s" требуется аргумент типа "char *", но вариативный аргумент "1" имеет тип "int"
-solve.obj : error LNK2019: ссылка на неразрешенный внешний символ _getline в функции _ReadText.
-C:\Users\pshea\source\repos\names\Debug\names.exe : fatal error LNK1120: неразрешенных внешних элементов: 1
