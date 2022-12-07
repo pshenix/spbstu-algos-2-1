@@ -50,20 +50,18 @@ void SalesMan(int*** matrix, int n, int* way, int count, int time, int* min_time
 		return;
 	}
 	if (count == n) {
-		if (*min_time > time + matrix[way[count - 1]][0][1]) {
-			for (int i = 0; i < n; i++) {
-				ans[i] = way[i];
-			}
-			*min_time = time + matrix[way[count - 1]][0][1];
+		*min_time = min(time + matrix[way[count - 1]][0][0], *min_time);
+		for (int i = 0; i < n; i++) {
+			ans[i] = way[i];
 		}
 		return;
 	}
 	for (int i = 1; i < n; i++) {
 		if (towns[i] != 1) {
 			towns[i] = 1; way[count] = i;
-			money += matrix[way[count - 1]][way[count]][0];
-			time += matrix[way[count - 1]][way[count]][1];
-			SalesMan(matrix, n, way, count + 1, time, min_time, money, max_cost, towns, ans);
+			time += matrix[way[count - 1]][way[count]][0];
+			money += matrix[way[count - 1]][way[count]][1];
+			SalesMan(matrix, n, way, count + 1, time, &min_time, money, max_cost, towns, ans);
 			towns[i] = 0;
 		}
 	}
@@ -83,14 +81,12 @@ int main() {
 	ans[0] = -1; // default value for when cannot to find any solution to starting conditions 
 	int* towns = (int*)calloc(n, sizeof(int));
 	towns[0] = 1; // cause we are already here
-
 	// parameters for recursion SalesMan:
 	// 1)matrix of map, 2)count towns, 3)possible path, 4)count passed towns, 5)transitory time
 	// 6)answer for time, 7)transitory sum of cost, 8)max_cost, 9)passed towns, 10)final way
 	SalesMan(map, n, way, 1, 0, &min_time, 0, max_cost, towns, ans);
-	if (ans[0] == -1) printf("\nIt is not a lot of money for such a trip, buddy");
+	if (ans[0] == -1) printf("It is not a lot of money for such a trip, buddy");
 	else {
-		printf("Summing time is %d\n", min_time);
 		for (int i = 0; i < n; i++) {
 			printf("%d -> ", ans[i] + 1);
 		}
